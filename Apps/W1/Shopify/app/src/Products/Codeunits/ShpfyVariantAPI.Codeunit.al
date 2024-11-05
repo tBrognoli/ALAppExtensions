@@ -65,8 +65,11 @@ codeunit 30189 "Shpfy Variant API"
         NewShopifyVariant: Record "Shpfy Variant";
         JResponse: JsonToken;
         GraphQuery: TextBuilder;
+        IsHandled: Boolean;
     begin
-        ProductEvents.OnBeforeSendAddShopifyProductVariant(Shop, ShopifyVariant);
+        ProductEvents.OnBeforeSendAddShopifyProductVariant(Shop, ShopifyVariant, IsHandled);
+        if IsHandled then
+            exit;
         GraphQuery.Append('{"query":"mutation { productVariantCreate(input: {productId: \"gid://shopify/Product/');
         GraphQuery.Append(Format(ShopifyVariant."Product Id"));
         GraphQuery.Append('\"');

@@ -336,7 +336,7 @@ codeunit 30177 "Shpfy Product Events"
     /// <param name="ShopifyShop">Parameter of type Record "Shopify Shop".</param>
     /// <param name="ShopifyVariant">Parameter of type Record "Shopify Variant".</param>
     [IntegrationEvent(false, false)]
-    internal procedure OnBeforeSendAddShopifyProductVariant(ShopifyShop: Record "Shpfy Shop"; var ShopifyVariant: Record "Shpfy Variant")
+    internal procedure OnBeforeSendAddShopifyProductVariant(ShopifyShop: Record "Shpfy Shop"; var ShopifyVariant: Record "Shpfy Variant"; IsHandled: Boolean)
     begin
     end;
 
